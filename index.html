@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <title>How Much To Pay</title>
+        <link rel="stylesheet" href="common/css/app.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    </head>
+    
+    <body>
+        <form ng-controller="HowMuchToPay">
+            <div id="container">
+                <span>
+                    <label>Amount</label>
+                    <input type="text" ng-model="investment.amount"></input>    
+                </span>            
+
+                <span>
+                    <label>Fee</label>
+                    <input type="text" ng-model="investment.fee"></input>
+                </span>
+                
+                <span>
+                    <button ng-click="calculate()">Calculate</button>
+                </span>
+
+                <span>
+                    <label>To Pay</label>
+                    <input type="text" ng-model="investment.toPay"></input>
+                </span>
+                
+            </div>
+        </form>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+        <script>
+            function HowMuchToPay($scope) {
+                // init
+                $scope.investment = { amount: 0, fee: 0, toPay: 0 };
+
+                $scope.calculate = function() {
+                    $scope.investment.toPay = ($scope.investment.amount * 100)/(100 - $scope.investment.fee);
+                }
+            }
+        </script>
+    </body>
+</html>
