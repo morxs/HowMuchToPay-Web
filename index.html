@@ -25,7 +25,8 @@
 
                 <span>
                     <label>To Pay</label>
-                    <input type="text" ng-model="investment.toPay"></input>
+                    <div ng-cloak>{{investment.toPay | number:2}}</div>
+                    <!--input type="text" ng-model="investment.toPay"></input-->
                 </span>
                 
             </div>
@@ -33,12 +34,22 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
         <script>
-            function HowMuchToPay($scope) {
+            function HowMuchToPay($scope, $filter) {
                 // init
                 $scope.investment = { amount: 0, fee: 0, toPay: 0 };
 
+                $scope.investment.amount = $filter('number')($scope.investment.amount, 2);
+                $scope.investment.fee = $filter('number')($scope.investment.fee, 2);
+
                 $scope.calculate = function() {
                     $scope.investment.toPay = ($scope.investment.amount * 100)/(100 - $scope.investment.fee);
+                    $scope.investment.amount = $filter('number')($scope.investment.amount, 2);
+                    $scope.investment.fee = $filter('number')($scope.investment.fee, 2);
+                }
+
+                $scope.reformat = function() {
+                    $scope.investment.amount = $filter('number')($scope.investment.amount, 2);
+                    $scope.investment.fee = $filter('number')($scope.investment.fee, 2);
                 }
             }
         </script>

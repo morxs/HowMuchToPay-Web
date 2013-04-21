@@ -5,13 +5,18 @@ body {
 	text-shadow: #4B3929 2px 2px 2px;
 }
 
+input {
+	font: 20px/24px 'Roboto', sans-serif;
+}
+
 #container {
 	text-align: center;
 }
 
 #container > span > label,
 #container > span > input, 
-#container > span > button {
+#container > span > button,
+#container > span > div {
 	display: block;
 	margin-bottom: 5px;
 }
@@ -28,11 +33,28 @@ body {
 	color: #FCC240;
 }
 
-#container > span > input {
+#container > span > input,
+#container > span > div {
 	border: 1px solid #A0A0A0;
 	padding: 4px;
 	margin: 0 auto;
-	box-shadow: 5px 5px #4B3929;
 	text-align: center;
+}
+
+#container > span > input {
+	box-shadow: 5px 5px #4B3928;
 	background-color: #CED6B4;
+}
+
+#container > span > div {
+	box-shadow: 5px 5px #CED6B4;
+	background-color: #4B3929;
+	color: #CED6B4;
+}
+
+#container > span > input, 
+#container > span > div {
+	width: 100%;
+	max-width: 250px;
+	min-width: 100px;
 }
