@@ -5,6 +5,11 @@ body {
 	text-shadow: #4B3929 2px 2px 2px;
 }
 
+h1 {
+	font-weight: 100;
+	text-align: center;
+}
+
 input {
 	font: 20px/24px 'Roboto', sans-serif;
 }
